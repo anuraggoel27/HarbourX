@@ -6,8 +6,9 @@ const mongoose = require("mongoose");
 const router = express.Router();
 
 const User = require("./schema/userModel");
+const Photo = require("./schema/photoModel");
 
-router.post("/users/signup", async (req, res) => {
+router.post("/user/signup", async (req, res) => {
   try {
     let user = new User(req.body);
     await bcrypt.hash(req.body.password, 7).then((hash) => {
@@ -22,7 +23,7 @@ router.post("/users/signup", async (req, res) => {
   }
 });
 
-router.post("/users/login", async (req, res) => {
+router.post("/user/login", async (req, res) => {
   const args = req.body;
   try {
     var data = {};
@@ -56,5 +57,41 @@ router.post("/users/login", async (req, res) => {
     res.status(500).send(error.message);
   }
 });
+
+router.post("/user/:id/addphoto", async (req, res) => {
+  var photo = new Photo({
+    user_id: req.params.id,
+    link: req.body.link,
+    caption: req.body.caption,
+    latitute: req.body.latitute,
+    longitude: req.body.longitude,
+    timeOfCapture: Date.now(),
+  });
+  await photo.save().then((data) => {
+    res.send(data);
+  });
+});
+
+router.get("/user/:id", (req, res) => {
+  try {
+    User.findOne({ _id: req.params.id }).then((user) => {
+      if (!user) console.log("No such user");
+      Photo.find({ user_id: req.params.id }).then((photoz) => {
+        var ret = {
+          name: user.name,
+          home: user.home,
+          bio: user.bio,
+          hometown: user.home,
+          photos: photoz
+        };
+        res.send(ret);
+      });
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/", (req, res) => {});
 
 module.exports = router;
