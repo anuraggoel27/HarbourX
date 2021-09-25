@@ -4,7 +4,7 @@ const Home = () => {
     return (
         <>
         <Header/>
-        <div className="home__container">
+        <div className="home__container" id="body">
             <h1 className="home__title">Welcome to Mapify!</h1>
             <div className="home__welcome_para">
 

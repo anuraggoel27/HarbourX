@@ -21,7 +21,7 @@ const Login = () => {
     .then((res)=>{
       console.log(res);
       const id=res.data.id;
-      window.location.replace(`http://localhost:3000/${id}`);
+      window.location.replace(`${process.env.REACT_APP_CLIENT_URL}/${id}`);
     })
     .catch((error)=>{
       console.log(error);
