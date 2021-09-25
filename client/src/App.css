@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400&family=Bitter:wght@500&display=swap");
+*{
+  padding:0;
+  margin:0;
+}
+.app__wrapper{
+  padding:0rem;
+}
+/* .body__container {
+    padding: 0rem 10rem 3rem;
+    background-color: #f0f5f9;
+    font-family: "Rubik", sans-serif;
+  } */
+  #body.disabled{
+    filter:blur(5px);
+  }
+  #footer.disabled{
+    filter:blur(5px);
+  }
+  .scroll-button__container {
+    z-index:1;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    font-size: 1.5rem;
+  }
+  .scroll-button {
+    background-color: #52616b;
+    color: #c9d6df;
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 1.25rem;
+    transition: 0.5s;
+  }
+  .scroll-button:hover {
+    background-color: #c9d6df;
+    color: #52616b;
+    transition: 0.5s;
+  }
+  .scroll-button a {
+    text-decoration: none;
+    color: #c9d6df;
+  }
+   
+.header__container {
+    z-index: 1;
+    position: fixed;
+    width: 100vw;
+    padding: 1.5rem 11rem 0;
+    height: 5.5rem;
+    background-color: #1e2022;
+    /* position: relative; */
+  }
+  .header__heading {
+    font-size: 2rem;
+    position: absolute;
+    left: 10rem;
+    width: 40%;
+    word-wrap: normal;
+    font-family: "Bitter", serif;
+  }
+  .header__heading a {
+    color: #f0f5f9;
+    text-decoration: none;
+  }
+  .home__container{
+    padding:7.5rem 10rem; 
+    font-family: "Rubik", sans-serif;
+  }
+.home__welcome_para{
+  padding:1rem 0;
+}
+.home__welcome_para p{
+  padding: 0.25rem 0;
+}
+.home__welcome_para a{
+  text-decoration:none;
+  color:#52616b;
+}
+@media only screen and (max-width: 768px) {
+    .header__container {
+        z-index: 1;
+        position: fixed;
+        width: 100vw;
+        padding: 1.5rem 1rem 0;
+      }
+      .header__heading {
+        font-size: 1.75rem;
+        position: absolute;
+        left: 1.1rem;
+        width: 50%;
+        top:30%;
+      }
+      .scroll-button__container {
+        bottom: 1rem;
+        right: 1rem;
+      }
+      .body__container{
+        padding:0rem 0rem;
+      }
+      .home__container{
+        padding:7.5rem 1rem; 
+      }
+}

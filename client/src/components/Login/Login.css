@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400&family=Bitter:wght@500&display=swap");
+.login__container{  
+    padding:2rem;
+    font-family: "Rubik", sans-serif;
+    width:100%;
+    height:100%;
+    /* display: inline-flex; */
+    background-color: #C9D6DF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+.login__form{
+    background-color:#1e2022;
+    width:25%;
+    padding:2rem;
+    position:absolute;
+    left:37.5%;
+    top:25%;
+    border-radius:1rem;
+}
+.login__form h2{
+    color:#fff;
+}
+label{
+    color:#fff;
+    text-align: left;
+}
+input{
+    border:0px;
+    padding:0.5rem;
+    /* width:100%; */
+    border-radius: 0.5rem;
+}
+.email-input{
+    outline:0;
+    border:none;
+}
+.email-input:focus{
+    outline:none !important;
+}
+/* input:focus{
+    
+} */
+.login__form-field{
+    padding:1rem 0;
+    width:100%;
+}
+.login__form button{
+    padding:0.5rem;
+    border-radius:0.5rem;
+    border: none;
+    transition:0.5s;
+}
+.login__form button:hover{
+    background-color:#52616B;
+    color:#C9D6DF;
+    transition:0.5s;
+}
+@media only screen and (max-width:768px){
+    .login__container{  
+        padding:0rem;
+        font-family: "Rubik", sans-serif;
+        width:100%;
+        display: inline-flex;
+        margin:auto auto;
+    }
+    .login__form{
+        background-color:#1e2022;
+        width:60%;
+        padding:2rem;
+        text-align:center;
+        left:20%;
+    }
+    input{
+        border:0px;
+        padding:0.5rem;
+        width:90%;
+        border-radius: 0.5rem;
+    }
+}
