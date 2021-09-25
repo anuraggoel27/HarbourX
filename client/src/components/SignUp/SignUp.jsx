@@ -43,6 +43,11 @@ const SignUp = () => {
       bio:bio,
       hometown:hometown,
     })
+    .then((res)=>{
+      const id=res.data.id;
+      console.log("Successfully Signed Up")
+      window.location.replace(`${process.env.REACT_APP_CLIENT_URL}/user/${id}`)
+    })
   }
   return (
     
