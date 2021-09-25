@@ -16,7 +16,7 @@ const Home = () => {
           </a>
           <a href="/">
             <p>Continue as guest</p>
-          </a>
+          </a>{" "}
         </div>
       </div>
       <Footer />
