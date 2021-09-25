@@ -14,7 +14,7 @@ const Login = () => {
   }
   const handleSubmit=(e)=>{
     e.preventDefault();
-    axios.post("http://localhost:5000/user/login",{
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/user/login`,{
       email:email,
       password:password
     })
