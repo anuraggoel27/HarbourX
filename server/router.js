@@ -83,7 +83,7 @@ router.get("/user/:id", (req, res) => {
           home: user.home,
           bio: user.bio,
           hometown: user.home,
-          photos: photoz
+          photos: photoz,
         };
         res.send(ret);
       });
@@ -93,6 +93,12 @@ router.get("/user/:id", (req, res) => {
   }
 });
 
-router.get("/", (req, res) => {});
+router.get("/", (req, res) => {
+  User.find({})
+    .limit(10)
+    .then((users) => {
+      res.send(users);
+    });
+});
 
 module.exports = router;

@@ -34,7 +34,7 @@ const SignUp = () => {
   const handleSubmit=(e)=>{
     e.preventDefault();
     console.log(name,email,password,username,home,hometown,bio);
-    axios.post("http://localhost:5000/user/signup",{
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/user/signup`,{
       name:name,
       email:email,
       password:password,
