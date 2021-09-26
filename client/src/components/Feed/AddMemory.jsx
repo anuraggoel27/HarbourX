@@ -23,6 +23,12 @@ const AddMemory=(props)=>{
             <input placeholder="How was your experience?"/>
             <br/>
             <button>Add Memory</button>
+      <iframe
+        src="https://deprov447.github.io/Imgur-Upload/"
+        title="W3Schools Free Online Web Tutorials"
+        width="500px"
+        height="800px"
+      ></iframe>
         </div>
     )
 }
