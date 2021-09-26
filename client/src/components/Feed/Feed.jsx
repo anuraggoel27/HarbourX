@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Feed.css";
 import axios from "axios";
+import {Map} from "../index";
 const Feed = () => {
   const id = window.location.pathname.split("/")[2];
   const [name, setName] = useState("");
@@ -48,6 +49,7 @@ const Feed = () => {
           <img src={photo} index={i} alt=""></img>
         ))}
       </div>
+      <Map/>
       <input type="file" onChange={handleChange} id="file"  />
       <button id="button" name="button" value="Upload" onClick={handleUpload}>
         Upload
