@@ -25,7 +25,6 @@ router.post("/user/signup", async (req, res) => {
 
 router.post("/user/login", async (req, res) => {
   const args = req.body;
-  console.log(args);
   try {
     var data = {};
     await User.findOne({ email: args.email }).then((user) => {
@@ -51,6 +50,7 @@ router.post("/user/login", async (req, res) => {
           isRegistered: true,
           isPassCorrect: true,
           token: tokenGenerated,
+          id:user.id
         });
       });
     });
@@ -83,7 +83,7 @@ router.get("/user/:id", (req, res) => {
           home: user.home,
           bio: user.bio,
           hometown: user.home,
-          photos: photoz
+          photos: photoz,
         };
         res.send(ret);
       });
@@ -93,6 +93,12 @@ router.get("/user/:id", (req, res) => {
   }
 });
 
-router.get("/", (req, res) => {});
+router.get("/", (req, res) => {
+  User.find({})
+    .limit(10)
+    .then((users) => {
+      res.send(users);
+    });
+});
 
 module.exports = router;
