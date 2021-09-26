@@ -7,24 +7,14 @@ import Map from './components/Feed/Map'
 import AddMemory from "./components/Feed/AddMemory.jsx";
 const App = () => {
   return (
-    //Main Body
-<<<<<<< HEAD:client/src/app.js
-    // <div className="app__wrapper">
-    //   <Route exact path="/" component={Home} />
-    //   <Route exact path="/login" component={Login} /> 
-    //   <Route exact path="/signup" component={SignUp} /> 
-    // </div>
-    <div className="app">
-      <Map />
-      {/* <AddMemory latitude="100" longitude="100"/> */}
+    
 
-=======
-    <div className="app__wrapper">
+    <div className="app_wrapper">
       <Route exact path="/" component={Home} />
       <Route exact path="/login" component={Login} /> 
       <Route exact path="/signup" component={SignUp} /> 
       <Route exact path="/user/:id" component={Feed} /> 
->>>>>>> a4e19fbc30d287526cf6fc02c96bdf72f177fa44:client/src/App.js
+
     </div>
   );
 };
