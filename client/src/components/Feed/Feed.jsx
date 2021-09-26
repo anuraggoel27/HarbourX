@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./Feed.css";
 import axios from "axios";
 const Feed = () => {
   const id = window.location.pathname.split("/")[2];
@@ -21,15 +21,37 @@ const Feed = () => {
     })
     .catch((err) => console.log(err));
 
+  const handleUpload = (e) => {
+    const file= 
+    console.log()
+  };
+
+  const handleChange=(e)=>{
+      console.log(e.target);
+  }
   return (
-    <div className="feed_container">
-      <h1>{name}</h1>
-      <p>{bio}</p>
-      <p>{home}</p>
-      <p>{hometown}</p>
-      {photos.map((photo, i) => (
-        <img src={photo} index={i} alt=""></img>
-      ))}
+    <div className="feed__container">
+      <div className="feed__name">
+        <h3>{name}</h3>
+      </div>
+      <div className="feed__bio">
+        <p>{bio}</p>
+      </div>
+      <div className="feed__address">
+        <p>{home}</p>
+      </div>
+      <div className="feed__city">
+        <p>{hometown}</p>
+      </div>
+      <div className="feed_map">
+        {photos.map((photo, i) => (
+          <img src={photo} index={i} alt=""></img>
+        ))}
+      </div>
+      <input type="file" onChange={handleChange} id="file"  />
+      <button id="button" name="button" value="Upload" onClick={handleUpload}>
+        Upload
+      </button>
     </div>
   );
 };

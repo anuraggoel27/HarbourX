@@ -1,0 +1,15 @@
+.feed__container{
+    background-color:#C9D6D5;
+    padding:11rem;
+}
+.feed__bio{
+    font-size:0.75rem !important;
+    color:#52616B;
+}
+
+@media only screen and (max-width:768px){
+    .feed__container{
+        background-color:#C9D6D5;
+        padding:1rem;
+    }
+}
