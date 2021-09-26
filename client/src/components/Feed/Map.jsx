@@ -26,7 +26,9 @@ function Map() {
        setViewport({...viewport,latitude:lat,longitude:lon})
       },[lat,lon])
 
-      
+    const handleClick=(e)=>{
+      window.location.replace(`${process.env.REACT_APP_CLIENT_URL}/addmemory`)
+    }
     
       return (
         
@@ -38,10 +40,10 @@ function Map() {
           
         >
         <Marker  longitude={lon} latitude={lat}  draggable={false} offsetLeft={-15} offsetTop={-20}>
-        <img src="https://www.containerrental.com/public/img/marker/free-map-marker-icon-blue.png" width={Math.max(viewport.zoom *5,30)} height={Math.max(viewport.zoom *5,30)} />
+        <img src="https://www.containerrental.com/public/img/marker/free-map-marker-icon-blue.png" alt="" width={Math.max(viewport.zoom *5,30)} height={Math.max(viewport.zoom *5,30)} />
 
         {/* the following button will redirect to a page where you can enter details and upload picture and add the memory to your timeline */}
-        <button style={{padding:"5px"},{backgroundColor:"tortquise"}} >Add to your Timeline</button>
+        <button onClick={handleClick} style={{padding:"5px"},{backgroundColor:"tortquise"}} >Add to your Timeline</button>
         </Marker>
         </ReactMapGL>
         

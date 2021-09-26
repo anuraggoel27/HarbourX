@@ -23,8 +23,7 @@ const Feed = () => {
     .catch((err) => console.log(err));
 
   const handleUpload = (e) => {
-    const file= 
-    console.log()
+    console.log(e.target);
   };
 
   const handleChange=(e)=>{
@@ -50,10 +49,6 @@ const Feed = () => {
         ))}
       </div>
       <Map/>
-      <input type="file" onChange={handleChange} id="file"  />
-      <button id="button" name="button" value="Upload" onClick={handleUpload}>
-        Upload
-      </button>
     </div>
   );
 };
