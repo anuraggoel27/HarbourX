@@ -47,12 +47,6 @@ const Feed = () => {
       <div className="feed__city">
         <p>{hometown}</p>
       </div>
-      {/* <div className="feed_map">
-        {photos.map((photo, i) => (
-          <img src={photo} index={i} alt=""></img>
-        ))}
-      </div>
-      <Map/> */}
       <div className="feed_map">
         {photo.map((p, i) => (
           <img src={p.link} key={i} alt="" style={{"height":"100px","width":"100px"}}></img>

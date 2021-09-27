@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@800&display=swap");
 
 .home__container {
-  background: url("../static/bg.jpg");
+  background: url("../../static/bg.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;

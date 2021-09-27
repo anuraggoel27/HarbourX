@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Footer } from "./";
+import { Header, Footer } from "../";
 import "./Home.css";
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
           <a href="/login">
             <p>Already a member? Sign In</p>
           </a>
-          <a href="/">
+          <a href="/public">
             <p>Continue as guest</p>
           </a>{" "}
         </div>
