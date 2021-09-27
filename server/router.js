@@ -82,7 +82,7 @@ router.get("/user/:id", (req, res) => {
           name: user.name,
           home: user.home,
           bio: user.bio,
-          hometown: user.home,
+          hometown: user.hometown,
           photos: photoz,
         };
         res.send(ret);
