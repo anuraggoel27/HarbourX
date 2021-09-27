@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import "./Feed.css";
 import axios from "axios";
-import {Map} from "../index";
+import {Map,LoggedHeader} from "../index";
 const Feed = () => {
   const id = window.location.pathname.split("/")[2];
   const [name, setName] = useState("");
@@ -32,8 +32,12 @@ const Feed = () => {
       console.log(e.target);
   }
   return (
+    <>
+    <LoggedHeader/>
     <div className="feed__container">
-      <div className="feed__name">
+    
+    <div className="feed_content" id="body">
+      <div className="feed__name" >
         <h3>{name}</h3>
       </div>
       <div className="feed__bio">
@@ -52,6 +56,8 @@ const Feed = () => {
       </div>
       <Map/>
     </div>
+    </div>
+    </>
   );
 };
 

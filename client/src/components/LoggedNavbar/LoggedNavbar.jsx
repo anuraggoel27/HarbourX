@@ -1,5 +1,5 @@
 import React, { useState, useRef} from "react";
-import "./Navbar.css";
+import "./LoggedNavbar.css";
 import { AiOutlineMinus } from "react-icons/ai";
 import { layoutGenerator } from "react-break";
 
@@ -12,32 +12,36 @@ const layout = layoutGenerator({
 
 const OnAtMostTablet = layout.isAtMost("tablet");
 const OnDesktop = layout.is("desktop");
-const Navbar = () => {
+const LoggedNavbar = () => {
   const [collapsed, setCollapsed] = useState(true);
-  const navbarRef=useRef();
+  const loggednavbarRef=useRef();
   const handleClick = (event) => {
     setCollapsed((prev) => !prev);
     if (collapsed) {
       document.getElementById("body").classList.add("disabled");
-     
+      
     } else {
       document.getElementById("body").classList.remove("disabled");
       
     }
   };
+  const id = window.location.pathname.split("/")[2];
+  const user_site=`${process.env.REACT_APP_CLIENT_URL}/user/${id}`;
   return (
     <div>
-      <div ref={navbarRef}
-      id="navbar"
+      <div ref={loggednavbarRef}
+      id="loggednavbar"
         className={
           collapsed
-            ? "custom-navbar navbar-collapsed"
-            : "custom-navbar navbar-expanded"
+            ? "custom-loggednavbar loggednavbar-collapsed"
+            : "custom-loggednavbar loggednavbar-expanded"
         }
       >
-        <div className="navbar__content">
-          <a href="/"><div className="navbar__navlink">Sign In</div></a>
-          <a href="/"><div className="navbar__navlink">Sign Up</div></a>
+        <div className="loggednavbar__content">
+        <a href="/"><div className="loggednavbar__navlink">Home</div></a>
+        <a href="/public"><div className="loggednavbar__navlink">Public Feed</div></a>
+        <a href={user_site}><div className="loggednavbar__navlink">Profile</div></a>
+          
         </div>
       </div>
       <OnAtMostTablet>
@@ -53,14 +57,14 @@ const Navbar = () => {
       </OnAtMostTablet>
 
       <OnDesktop>
-        <div className="desktop-navbar">
-          
-          <a href="/login"><div className="desktop-navbar__link">Sign In</div></a>
-          <a href="/signup"><div className="desktop-navbar__link">Sign Up</div></a>
+        <div className="desktop-loggednavbar">
+        <a href="/"><div className="desktop-loggednavbar__link">Home</div></a>
+          <a href="/public"><div className="desktop-loggednavbar__link">Public Feed</div></a>
+          <a href={user_site}><div className="desktop-loggednavbar__link">Profile</div></a>
         </div>
       </OnDesktop>
     </div>
   );
 };
 
-export default Navbar;
+export default LoggedNavbar;

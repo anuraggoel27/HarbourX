@@ -1,0 +1,139 @@
+.custom-loggednavbar {
+    display: inline-block;
+    width: 100vw;
+    position: fixed;
+    height: 325px;
+    left: 0;
+    top: 0;
+    background-color: #1e2022;
+    margin-right: 0;
+    padding: 1rem;
+    z-index:1;
+  }
+  .loggednavbar-expanded {
+    transform: translate(0, 70px);
+    transition: 0.75s;
+    color: #C9D6DF;
+  }
+  .loggednavbar-collapsed {
+    transform: translate(0, -325px);
+    transition: 0.75s;
+  }
+  .toggler-button {
+    position: absolute;
+    right: 11rem;
+    top: 2rem;
+    outline: none;
+    height: 30px;
+    width:30px;
+    background-color: #F0F5F9;
+    border-radius:15px;
+    border: none;
+  }
+  .toggler-button:focus {
+    box-shadow: 0 0 0 0;
+    outline: none;
+  }
+  .top,
+  .middle,
+  .bottom {
+    display: block;
+    transition: 0.75s;
+    height: 20px;
+    position:relative;
+    left:0.55rem;
+  }
+  .middle {
+    position: relative;
+    bottom: 15.5px;
+  }
+  .bottom {
+    position: relative;
+    bottom: 30.5px;
+  }
+  .top-expanded {
+    transform: translate(0, 5px) rotate(135deg);
+    transition: 0.75s;
+  }
+  .middle-expanded {
+    transform: translate(0, 0px) rotate(-135deg);
+    transition: 0.75s;
+  }
+  .bottom-expanded {
+    transition: 0.4s;
+    visibility: hidden;
+    transform: translate(1200px, 0px) rotate(-140deg);
+  }
+  
+  
+  .loggednavbar__content{
+    /* background-color:#1e2022; */
+    height:100%;
+    width:100;
+    border-radius:1rem ;
+    padding:1rem;
+    text-align:center;
+  }
+  
+  .loggednavbar__navlink{
+    margin:2rem auto;
+    padding:1rem;
+    border-radius:0.75rem;
+    transition: 0.5s;
+  }
+  .loggednavbar__navlink:hover{
+    background-color: #1e2022;
+    transition: 0.5s;
+  }
+  .loggednavbar__content a{
+    text-decoration: none;
+    color:#F0F5F9;
+    transition: 0.5s;
+  }
+  .loggednavbar__content a:hover{
+    color:#C9D6DF;
+    transition: 0.5s;
+  }
+  .desktop-loggednavbar{
+    display:inline-flex;
+    position:fixed;
+    /* width:100%; */
+    top:1rem;
+    right:10rem;
+    /* justify-content: flex-end; */
+  }
+  .desktop-loggednavbar__link{
+    padding:1rem;
+    border-radius: 1rem;
+    margin:0 1rem;
+  }
+  .desktop-loggednavbar a{
+    text-decoration:none;
+    color:#F0F5F9;
+    transition: 0.5s;
+  }
+  .desktop-loggednavbar a:hover{
+    background-color:#F0F5F9;
+    color:#1e2022;
+    transition: 0.5s;
+  }
+  @media only screen and (max-width:720px){
+    .toggler-button {
+      position: absolute;
+      right:3rem;
+      top: 2rem;
+      
+    }
+    
+  }
+  
+  @media only screen and (min-width:720px) and (max-width:1250px){
+    .toggler-button {
+      position: absolute;
+      right:2rem;
+      top: 1.725rem;
+    }
+  }
+  
+  
+  

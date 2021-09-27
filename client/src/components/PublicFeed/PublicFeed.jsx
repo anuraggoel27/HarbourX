@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
-import axios from 'axios'
+import axios from 'axios';
+import {LoggedHeader} from "../index";
 import "./PublicFeed.css"
 const PublicFeed = () => {
     const [users,setUsers]=useState([])
@@ -26,7 +27,9 @@ const PublicFeed = () => {
     },[])
     
     return (
-        <div className="public__container">
+        <>
+        <LoggedHeader/>
+        <div className="public__container" id="body">
             {users.map((user,i)=>{
                 return(
                 <div key={i}  className="profile__details">
@@ -38,6 +41,7 @@ const PublicFeed = () => {
                 )
             })}
         </div>
+        </>
     )
 }
 
