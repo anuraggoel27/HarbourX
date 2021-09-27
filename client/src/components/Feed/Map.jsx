@@ -26,9 +26,8 @@ function Map() {
   }, [lat, lon]);
 
   const HandleAddMemory = (e) => {
-    const iframe=document.getElementById('iframeId');
-    var elmnt = iframe.contentWindow.document.getElementsByTagName("input");
-    console.log(elmnt);
+    const link = document.querySelector("imagelink").value;
+    console.log(link)
   }
 
   const handleClick = (e) => {
@@ -73,23 +72,22 @@ function Map() {
         <p>
           Longitude: {lat} Latitude : {lon}
         </p>
-        <input placeholder="Name of the place" />
+        <input placeholder="Where you are?" />
         <br />
-        <p>Wanna add some memories?</p>
-        <input
+        {/* <input
           type="file"
           onChange={(e) => {
             addfilechange({ file: URL.createObjectURL(e.target.files[0]) });
           }}
-        ></input>
+        ></input> */}
+        <input type="text" placeholder="Insert Image Link Here" id="imageLink" />
         <img src={selectedfile.file} alt="" />
-        <p>Write something about this place !</p>
-        <input placeholder="How was your experience?" />
+        <textarea placeholder="How's that place?"  />
         <br />
         <button onClick={HandleAddMemory}>Add Memory</button>
         <iframe
-          src="https://cors.io/?https://deprov447.github.io/Imgur-Upload/"
-          title="W3Schools Free Online Web Tutorials"
+          src="https://laughing-dijkstra-7b47ad.netlify.app/"
+          title="Imgur Uploader"
           width="500px"
           height="800px"
           id="iframeId"
