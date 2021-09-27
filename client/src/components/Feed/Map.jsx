@@ -3,8 +3,27 @@ import { useState, useEffect } from "react";
 import ReactMapGL from "react-map-gl";
 import { Marker } from "react-map-gl";
 import { Button } from "react-bootstrap";
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+import Fab from "@material-ui/core/Fab";
 import axios from "axios";
 //ye page open hote hi user ka current location show hoga
+
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    borderRadius: 10,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(5, 4, 5),
+  },
+}));
 
 function Map() {
   const id = window.location.pathname.split("/")[2];
@@ -18,6 +37,17 @@ function Map() {
     zoom: 4,
     pitch: 50,
   });
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setLat(position.coords.latitude);
@@ -29,15 +59,18 @@ function Map() {
   const HandleAddMemory = (e) => {
     const link = document.getElementById("imageLink").value;
     console.log(link);
-    axios.post(`${process.env.REACT_APP_SERVER_URL}/user/${id}/addphoto`,{
-      user_id:id,
-      link:link,
-    })
-    .then((res)=>{
-      window.location.replace(`${process.env.REACT_APP_CLIENT_URL}/user/${id}`)
-    })
-    .catch((err)=>console.log(err))
-  }
+    axios
+      .post(`${process.env.REACT_APP_SERVER_URL}/user/${id}/addphoto`, {
+        user_id: id,
+        link: link,
+      })
+      .then((res) => {
+        window.location.replace(
+          `${process.env.REACT_APP_CLIENT_URL}/user/${id}`
+        );
+      })
+      .catch((err) => console.log(err));
+  };
 
   const handleClick = (e) => {
     window.location.replace(`${process.env.REACT_APP_CLIENT_URL}/addmemory`);
@@ -46,7 +79,7 @@ function Map() {
   const [selectedfile, addfilechange] = useState({ file: null });
   return (
     <>
-    {/* Change size of map div */}
+      {/* Change size of map div */}
       <ReactMapGL
         mapStyle={"mapbox://styles/mapbox/dark-v9"}
         mapboxApiAccessToken={
@@ -70,28 +103,58 @@ function Map() {
           />
         </Marker>
       </ReactMapGL>
-      <div className="AddingMemory">
-        <input placeholder="Where you are?" />
-        <br />
-        {/* <input
+      <button className="add-new-memory" onClick={handleOpen}>
+        Add New Memory
+      </button>
+
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <div className={classes.paper}>
+            <h2 id="transition-modal-title">Add new Memories</h2>
+            <p id="transition-modal-description">
+              <div className="AddingMemory">
+                <input placeholder="Where you are?" />
+                <br />
+                {/* <input
           type="file"
           onChange={(e) => {
             addfilechange({ file: URL.createObjectURL(e.target.files[0]) });
           }}
         ></input> */}
-        <input type="text" placeholder="Insert Image Link Here" id="imageLink" />
-        <img src={selectedfile.file} alt="" />
-        <textarea placeholder="How's that place?"  />
-        <br />
-        <iframe
-          src="https://laughing-dijkstra-7b47ad.netlify.app/"
-          title="Imgur Uploader"
-          width="500px"
-          height="800px"
-          id="iframeId"
-        ></iframe>
-        <button onClick={HandleAddMemory}>Add Memory</button>
-      </div>
+                <input
+                  type="text"
+                  placeholder="Insert Image Link Here"
+                  id="imageLink"
+                />
+                <img src={selectedfile.file} alt="" />
+                <textarea placeholder="How's that place?" />
+                <br />
+                <iframe
+                  src="https://laughing-dijkstra-7b47ad.netlify.app/"
+                  title="Imgur Uploader"
+                  width="100%"
+                  height="250px"
+                  id="iframeId"
+                ></iframe>
+                <button className="add-memory" onClick={HandleAddMemory}>
+                  Add Memory
+                </button>
+              </div>
+            </p>
+          </div>
+        </Fade>
+      </Modal>
     </>
   );
 }

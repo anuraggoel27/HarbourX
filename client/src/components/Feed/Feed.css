@@ -10,6 +10,7 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  padding:6.5rem 0;
 }
 
 .feed__container .feed__name h3,
@@ -34,7 +35,10 @@ p {
 }
 
 .AddingMemory {
-  padding: 20px
+  padding: 20px;
+  display:flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .AddingMemory input,
@@ -46,5 +50,28 @@ textarea {
 }
 
 .AddingMemory button{
-  margin: 20px auto;
+  padding:0.5rem 1rem;
+  border:none;
+  text-align:left;
+  margin: 0;
+  transition:0.5s;
+  height:50px;
+}
+.AddingMemory button:hover{
+  background-color:black;
+  color:white;
+  transition:0.5s;
+}
+.makeStyles-modal-1{
+  width:50%;
+  margin:0 auto;
+}
+
+
+@media only screen and (max-width:768px){
+  .makeStyles-modal-1{
+    height:50%;
+    width:100%;
+    margin:auto 0;
+  }
 }
