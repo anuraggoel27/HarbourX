@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./PublicViewFeed.css";
-import { LoggedHeader, MapWindow, Markers } from "../index";
+import { LoggedHeader, MapWindow } from "../index";
 import axios from "axios";
 const Feed = () => {
   const id = window.location.pathname.split("/")[3];
@@ -23,15 +23,8 @@ const Feed = () => {
         setPhoto(...photo, photos);
       })
       .catch((err) => console.log(err));
-  }, [id]);
+  }, [id,photo]);
 
-  const handleUpload = (e) => {
-    console.log(e.target);
-  };
-
-  const handleChange = (e) => {
-    console.log(e.target);
-  };
   return (
     <>
       <LoggedHeader />

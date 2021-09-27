@@ -2,14 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ReactMapGL from "react-map-gl";
 import { Marker } from "react-map-gl";
-import { Button } from "react-bootstrap";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import Fab from "@material-ui/core/Fab";
 import axios from "axios";
-//ye page open hote hi user ka current location show hoga
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -65,8 +62,8 @@ function Map() {
         user_id: id,
         link: link,
         nameOfPlace: nameOfPlace,
-        latitute:lat,
-        longitude:lon
+        latitute: lat,
+        longitude: lon,
       })
       .then((res) => {
         window.location.replace(
@@ -76,9 +73,6 @@ function Map() {
       .catch((err) => console.log(err));
   };
 
-  const handleClick = (e) => {
-    window.location.replace(`${process.env.REACT_APP_CLIENT_URL}/addmemory`);
-  };
   const onLocationChange = (e) => {
     setNameOfPlace(e.target.value);
   };
@@ -135,19 +129,13 @@ function Map() {
                   placeholder="Name of the place"
                 />
                 <br />
-                {/* <input
-          type="file"
-          onChange={(e) => {
-            addfilechange({ file: URL.createObjectURL(e.target.files[0]) });
-          }}
-        ></input> */}
                 <input
                   type="text"
                   placeholder="Insert Image Link Here"
                   id="imageLink"
                 />
                 <img src={selectedfile.file} alt="" />
-                
+
                 <br />
                 <iframe
                   src="https://laughing-dijkstra-7b47ad.netlify.app/"

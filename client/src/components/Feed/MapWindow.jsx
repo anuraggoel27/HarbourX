@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactMapGL from "react-map-gl";
 import { Markers } from "../index";
 import axios from "axios";
-function MapWindow({ latitude, longitude }) {
+function MapWindow() {
   const id = window.location.pathname.split("/")[3];
   const [photo, setPhoto] = useState([]);
   useEffect(() => {

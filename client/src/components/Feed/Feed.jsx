@@ -24,14 +24,6 @@ const Feed = () => {
     .catch((err) => console.log(err));
   },[id])
   
-
-  const handleUpload = (e) => {
-    console.log(e.target);
-  };
-
-  const handleChange=(e)=>{
-      console.log(e.target);
-  }
   return (
     <>
     <LoggedHeader/>

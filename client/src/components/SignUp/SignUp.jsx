@@ -54,7 +54,6 @@ const SignUp = () => {
             `${process.env.REACT_APP_CLIENT_URL}/user/${id}`
           );
         }
-        // window.location.replace(`${process.env.REACT_APP_CLIENT_URL}/user/${id}`)
       });
   };
   return (

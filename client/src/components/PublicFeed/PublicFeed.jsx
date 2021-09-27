@@ -5,7 +5,6 @@ import "./PublicFeed.css"
 const PublicFeed = () => {
     const [users,setUsers]=useState([])
     const [profile,setProfile]=useState([]);
-    const [photos,setPhotos]=useState([]);
     const getInfo=()=>{
         axios.get(`${process.env.REACT_APP_SERVER_URL}/`)
         .then((res)=>{
@@ -15,11 +14,6 @@ const PublicFeed = () => {
     }
     const getPhotos=(e)=>{
         const id=e.target.id;
-        // axios.get(`${process.env.REACT_APP_SERVER_URL}/user/${id}`)
-        // .then((res)=>setProfile(...profile,res.data))
-        // .catch((err)=>console.log(err))
-
-        // console.log(profile)
         window.location.replace(`${process.env.REACT_APP_CLIENT_URL}/public/user/${id}`);
     }
     useEffect(()=>{
