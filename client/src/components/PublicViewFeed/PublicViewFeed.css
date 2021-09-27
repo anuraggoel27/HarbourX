@@ -10,10 +10,10 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  padding:6.5rem 0;
+  padding: 6.5rem 0;
 }
 
-.elementXwrapper{
+.elementXwrapper {
   margin-top: 100px;
 }
 
@@ -40,7 +40,7 @@ p {
 
 .AddingMemory {
   padding: 20px;
-  display:flex;
+  display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
 }
@@ -51,4 +51,19 @@ textarea {
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 10px;
+}
+.feed_map {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 900px;
+}
+
+.feed_map .myPics {
+  width: 400px;
+  margin: 10px;
+}
+
+.feed_map p {
+  text-align: center;
 }

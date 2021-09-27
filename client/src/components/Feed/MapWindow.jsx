@@ -15,8 +15,8 @@ function MapWindow({ latitude, longitude }) {
       .catch((err) => console.log(err));
   }, [id]);
   const [viewport, setViewport] = useState({
-    width: "400px",
-    height: "400px",
+    width: "800px",
+    height: "800px",
     latitude: 28.7041,
     longitude: 77.1025,
     zoom: 4,
