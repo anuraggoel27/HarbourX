@@ -17,7 +17,7 @@ router.post("/user/signup", async (req, res) => {
     console.log(user);
 
     await user.save();
-    res.send({ userCreate: true });
+    res.send({ userCreate: true, id: user.id });
   } catch (error) {
     res.status(500).send(error.message);
   }
@@ -50,7 +50,7 @@ router.post("/user/login", async (req, res) => {
           isRegistered: true,
           isPassCorrect: true,
           token: tokenGenerated,
-          id:user.id
+          id: user.id,
         });
       });
     });

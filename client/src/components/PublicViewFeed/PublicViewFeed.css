@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@800&display=swap");
+
+.ScreenWrapper {
+  background: url("../../static/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  font-family: "Alegreya Sans SC", sans-serif;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding:6.5rem 0;
+}
+
+.elementXwrapper{
+  margin-top: 100px;
+}
+
+.feed__container .feed__name h3,
+p {
+  color: white;
+  text-shadow: black 3px 3px 3px;
+}
+
+.feed__container .feed__name h3 {
+  font-size: 45px;
+}
+
+.feed__container button {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 30px;
+  border: 1px solid gray;
+  box-shadow: black 3px 3px 3px;
+  background-color: rgba(255, 255, 255, 0.61);
+}
+
+.AddingMemory {
+  padding: 20px;
+  display:flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.AddingMemory input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
