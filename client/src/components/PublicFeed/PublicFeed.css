@@ -1,11 +1,31 @@
-.public__container{
-    display: inline-flex;
-    width:100%;
-    flex-wrap: wrap;
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@800&display=swap");
+
+.public__container {
+  background: url("../../static/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Alegreya Sans SC", sans-serif;
+  margin-top: 80px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
 }
-.profile__details{
-    background-color:red;
-    padding:1rem;
-    margin:1rem;
-    width:40%;
+
+.public__container div {
+  margin: 20px;
+  padding: 5px 30px;
+  border: 1px solid gray;
+  box-shadow: black 3px 3px 3px;
+  background-color: rgba(255, 255, 255, 0.61);
+}
+
+.public__container button {
+  padding: 10px 20px;
+  background-color: white;
+  border: 2px solid grey;
+  display: block;
+  margin: 0 auto;
 }

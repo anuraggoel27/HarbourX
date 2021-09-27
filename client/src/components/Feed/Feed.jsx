@@ -13,6 +13,7 @@ const Feed = () => {
     axios
     .get(`${process.env.REACT_APP_SERVER_URL}/user/${id}`)
     .then((res) => {
+      console.log(res)
       const { name, bio, home, hometown, photos } = res.data;
       setName(name);
       setBio(bio);
