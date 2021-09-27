@@ -1,4 +1,11 @@
+.public__container{
+    display: inline-flex;
+    width:100%;
+    flex-wrap: wrap;
+}
 .profile__details{
     background-color:red;
     padding:1rem;
+    margin:1rem;
+    width:40%;
 }

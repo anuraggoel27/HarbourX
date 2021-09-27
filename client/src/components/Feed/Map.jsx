@@ -7,6 +7,7 @@ import axios from "axios";
 //ye page open hote hi user ka current location show hoga
 
 function Map() {
+  const id = window.location.pathname.split("/")[2];
   const [lat, setLat] = useState(0);
   const [lon, setLong] = useState(0);
   const [viewport, setViewport] = useState({
@@ -26,8 +27,14 @@ function Map() {
   }, [lat, lon]);
 
   const HandleAddMemory = (e) => {
-    const link = document.querySelector("imagelink").value;
-    console.log(link)
+    const link = document.getElementById("imageLink").value;
+    console.log(link);
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/user/${id}/addphoto`,{
+      user_id:id,
+      link:link,
+    })
+    .then((res)=>console.log(res))
+    .catch((err)=>console.log(err))
   }
 
   const handleClick = (e) => {

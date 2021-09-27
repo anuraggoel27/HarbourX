@@ -7,3 +7,4 @@ export {default as SignUp} from "./SignUp/SignUp";
 export {default as Feed} from "./Feed/Feed";
 export {default as Map} from "./Feed/Map";
 export {default as PublicFeed} from "./PublicFeed/PublicFeed"
+export {default as PublicViewFeed} from "./PublicViewFeed/PublicViewFeed"
