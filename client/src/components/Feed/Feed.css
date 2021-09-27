@@ -1,15 +1,20 @@
-.feed__container{
-    background-color:#C9D6D5;
-    padding:11rem;
-}
-.feed__bio{
-    font-size:0.75rem !important;
-    color:#52616B;
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@800&display=swap");
+
+.feed__container {
+  background: url("../../static/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Alegreya Sans SC", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-@media only screen and (max-width:768px){
-    .feed__container{
-        background-color:#C9D6D5;
-        padding:1rem;
-    }
+.feed__name,.feed__bio,.feed__address,.feed {
+  font-size: 75px;
+  color: white;
+  text-shadow: black 3px 3px 3px;
 }
