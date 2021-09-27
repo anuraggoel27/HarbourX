@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./Feed.css";
 import axios from "axios";
 import {Map} from "../index";
@@ -9,8 +9,8 @@ const Feed = () => {
   const [home, setHome] = useState("");
   const [hometown, setHometown] = useState("");
   const [photos, setPhotos] = useState([]);
-
-  axios
+  useEffect(()=>{
+    axios
     .get(`${process.env.REACT_APP_SERVER_URL}/user/${id}`)
     .then((res) => {
       const { name, bio, home, hometown, photos } = res.data;
@@ -21,6 +21,8 @@ const Feed = () => {
       setPhotos(photos);
     })
     .catch((err) => console.log(err));
+  },[id])
+  
 
   const handleUpload = (e) => {
     console.log(e.target);
