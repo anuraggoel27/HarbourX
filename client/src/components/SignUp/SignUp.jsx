@@ -46,7 +46,7 @@ const SignUp = () => {
       })
       .then((res) => {
         const id = res.data.id;
-        const success = res.data.userCreated;
+        const success = res.data.userCreate;
         console.log("Successfully Signed Up");
         console.log(res.data);
         if (success) {

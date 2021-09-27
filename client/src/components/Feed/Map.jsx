@@ -29,6 +29,7 @@ function Map() {
   const id = window.location.pathname.split("/")[2];
   const [lat, setLat] = useState(0);
   const [lon, setLong] = useState(0);
+  const [nameOfPlace, setNameOfPlace] = useState("");
   const [viewport, setViewport] = useState({
     width: "400px",
     height: "400px",
@@ -75,7 +76,9 @@ function Map() {
   const handleClick = (e) => {
     window.location.replace(`${process.env.REACT_APP_CLIENT_URL}/addmemory`);
   };
-
+  const onLocationChange = (e) => {
+    setNameOfPlace(e.target.value);
+  };
   const [selectedfile, addfilechange] = useState({ file: null });
   return (
     <>
@@ -122,9 +125,12 @@ function Map() {
         <Fade in={open}>
           <div className={classes.paper}>
             <h2 id="transition-modal-title">Add new Memories</h2>
-            <p id="transition-modal-description">
+            <div id="transition-modal-description">
               <div className="AddingMemory">
-                <input placeholder="Where you are?" />
+                <input
+                  onChange={onLocationChange}
+                  placeholder="Name of the place"
+                />
                 <br />
                 {/* <input
           type="file"
@@ -138,7 +144,7 @@ function Map() {
                   id="imageLink"
                 />
                 <img src={selectedfile.file} alt="" />
-                <textarea placeholder="How's that place?" />
+                
                 <br />
                 <iframe
                   src="https://laughing-dijkstra-7b47ad.netlify.app/"
@@ -151,7 +157,7 @@ function Map() {
                   Add Memory
                 </button>
               </div>
-            </p>
+            </div>
           </div>
         </Fade>
       </Modal>
