@@ -32,25 +32,30 @@ const Feed = () => {
       console.log(e.target);
   }
   return (
-    <div className="feed__container">
-      <div className="feed__name">
-        <h3>{name}</h3>
+    
+    <div className="ScreenWrapper">
+      <div className="feed__container">
+        <div className="elementXwrapper">
+          <div className="feed__name">
+            <h3>{name}</h3>
+          </div>
+          <div className="feed__bio">
+            <p>{bio}</p>
+          </div>
+          <div className="feed__address">
+            <p>{home}</p>
+          </div>
+          <div className="feed__city">
+            <p>{hometown}</p>
+          </div>
+          <div className="feed_map">
+            {photos.map((photo, i) => (
+              <img key={i} src={photo} index={i} alt=""></img>
+            ))}
+          </div>
+        </div>
+        <Map />
       </div>
-      <div className="feed__bio">
-        <p>{bio}</p>
-      </div>
-      <div className="feed__address">
-        <p>{home}</p>
-      </div>
-      <div className="feed__city">
-        <p>{hometown}</p>
-      </div>
-      <div className="feed_map">
-        {photos.map((photo, i) => (
-          <img key={i} src={photo} index={i} alt=""></img>
-        ))}
-      </div>
-      <Map/>
     </div>
   );
 };
