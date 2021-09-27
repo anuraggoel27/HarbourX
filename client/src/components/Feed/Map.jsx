@@ -64,6 +64,9 @@ function Map() {
       .post(`${process.env.REACT_APP_SERVER_URL}/user/${id}/addphoto`, {
         user_id: id,
         link: link,
+        nameOfPlace: nameOfPlace,
+        latitude:lat,
+        longitude:lon
       })
       .then((res) => {
         window.location.replace(
