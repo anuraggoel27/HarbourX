@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./PublicViewFeed.css";
-import { LoggedHeader } from "../index";
+import { LoggedHeader,MapWindow,Markers } from "../index";
 import axios from "axios";
 const Feed = () => {
   const id = window.location.pathname.split("/")[3];
@@ -52,13 +52,17 @@ const Feed = () => {
             </div>
             <div className="feed_map">
               {photo.map((p, i) => (
+                <>
                 <img
                   src={p.link}
                   key={i}
                   alt=""
                   style={{ height: "100px", width: "100px" }}
                 ></img>
+                
+                </>
               ))}
+              <MapWindow/>
             </div>
           </div>
         </div>

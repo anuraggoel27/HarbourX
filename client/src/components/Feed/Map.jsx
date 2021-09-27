@@ -33,7 +33,7 @@ function Map() {
   const [viewport, setViewport] = useState({
     width: "400px",
     height: "400px",
-    latitude: lat,
+    latitute: lat,
     longitude: lon,
     zoom: 4,
     pitch: 50,
@@ -65,7 +65,7 @@ function Map() {
         user_id: id,
         link: link,
         nameOfPlace: nameOfPlace,
-        latitude:lat,
+        latitute:lat,
         longitude:lon
       })
       .then((res) => {
