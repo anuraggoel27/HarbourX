@@ -9,6 +9,7 @@ import {
 } from "./components/index.js";
 import { Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import dotenv from "dotenv";
 import "./App.css";
 const App = () => {
   return (
