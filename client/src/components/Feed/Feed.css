@@ -13,6 +13,10 @@
   padding:6.5rem 0;
 }
 
+.elementXwrapper{
+  margin-top: 100px;
+}
+
 .feed__container .feed__name h3,
 p {
   color: white;
