@@ -1,5 +1,6 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./PublicViewFeed.css";
+import { LoggedHeader } from "../index";
 import axios from "axios";
 const Feed = () => {
   const id = window.location.pathname.split("/")[3];
@@ -8,51 +9,61 @@ const Feed = () => {
   const [home, setHome] = useState("");
   const [hometown, setHometown] = useState("");
   const [photo, setPhoto] = useState([]);
-  useEffect(()=>{
-      console.log(id);
+  useEffect(() => {
+    console.log(id);
     axios
-    .get(`${process.env.REACT_APP_SERVER_URL}/user/${id}`)
-    .then((res) => {
-        console.log(res.data)
-      const { name, bio, home, hometown, photos } = res.data;
-      setName(name);
-      setBio(bio);
-      setHome(home);
-      setHometown(hometown);
-      setPhoto(...photo,photos);
-    })
-    .catch((err) => console.log(err));
-  },[id])
-  
+      .get(`${process.env.REACT_APP_SERVER_URL}/user/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        const { name, bio, home, hometown, photos } = res.data;
+        setName(name);
+        setBio(bio);
+        setHome(home);
+        setHometown(hometown);
+        setPhoto(...photo, photos);
+      })
+      .catch((err) => console.log(err));
+  }, [id]);
 
   const handleUpload = (e) => {
     console.log(e.target);
   };
 
-  const handleChange=(e)=>{
-      console.log(e.target);
-  }
+  const handleChange = (e) => {
+    console.log(e.target);
+  };
   return (
-    <div className="feed__container">
-
-      <div className="feed__name">
-        <h3>{name}</h3>
+    <>
+      <LoggedHeader />
+      <div className="ScreenWrapper">
+        <div className="feed__container" id="body">
+          <div className="elementXwrapper">
+            <div className="feed__name">
+              <h3>{name}</h3>
+            </div>
+            <div className="feed__bio">
+              <p>{bio}</p>
+            </div>
+            <div className="feed__address">
+              <p>{home}</p>
+            </div>
+            <div className="feed__city">
+              <p>{hometown}</p>
+            </div>
+            <div className="feed_map">
+              {photo.map((p, i) => (
+                <img
+                  src={p.link}
+                  key={i}
+                  alt=""
+                  style={{ height: "100px", width: "100px" }}
+                ></img>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="feed__bio">
-        <p>{bio}</p>
-      </div>
-      <div className="feed__address">
-        <p>{home}</p>
-      </div>
-      <div className="feed__city">
-        <p>{hometown}</p>
-      </div>
-      <div className="feed_map">
-        {photo.map((p, i) => (
-          <img src={p.link} key={i} alt="" style={{"height":"100px","width":"100px"}}></img>
-        ))}
-      </div>
-    </div>
+    </>
   );
 };
 

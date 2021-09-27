@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Photo = new mongoose.Schema({
   user_id: { type: String, required: true },
   link: { type: String, required: true },
-  caption: String,
+  nameOfPlace: String,
   latitute: Number,
   longitude: Number,
   timeOfCapture: Date,
