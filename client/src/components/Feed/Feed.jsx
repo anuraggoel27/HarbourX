@@ -47,7 +47,7 @@ const Feed = () => {
       </div>
       <div className="feed_map">
         {photos.map((photo, i) => (
-          <img src={photo} index={i} alt=""></img>
+          <img key={i} src={photo} index={i} alt=""></img>
         ))}
       </div>
       <Map/>

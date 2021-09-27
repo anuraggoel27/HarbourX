@@ -20,8 +20,14 @@ const Login = () => {
     })
     .then((res)=>{
       console.log(res);
+      console.log(res.data);
       const id=res.data.id;
-      window.location.replace(`${process.env.REACT_APP_CLIENT_URL}/user/${id}`);
+      const isRegistered=res.data.isRegistered;
+      const isPassCorrect=res.data.isPassCorrect;
+      if(isRegistered && isPassCorrect){
+        window.location.replace(`${process.env.REACT_APP_CLIENT_URL}/user/${id}`);
+      }
+      // window.location.replace(`${process.env.REACT_APP_CLIENT_URL}/user/${id}`);
     })
     .catch((error)=>{
       console.log(error);
