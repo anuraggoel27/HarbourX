@@ -46,6 +46,7 @@ function Map() {
   const [selectedfile, addfilechange] = useState({ file: null });
   return (
     <>
+    {/* Change size of map div */}
       <ReactMapGL
         mapStyle={"mapbox://styles/mapbox/dark-v9"}
         mapboxApiAccessToken={
@@ -67,20 +68,9 @@ function Map() {
             width={Math.max(viewport.zoom * 5, 30)}
             height={Math.max(viewport.zoom * 5, 30)}
           />
-
-          {/* the following button will redirect to a page where you can enter details and upload picture and add the memory to your timeline */}
-          <button
-            onClick={handleClick}
-            style={({ padding: "5px" }, { backgroundColor: "tortquise" })}
-          >
-            Add to your Timeline
-          </button>
         </Marker>
       </ReactMapGL>
       <div className="AddingMemory">
-        <p>
-          Longitude: {lat} Latitude : {lon}
-        </p>
         <input placeholder="Where you are?" />
         <br />
         {/* <input
@@ -93,7 +83,6 @@ function Map() {
         <img src={selectedfile.file} alt="" />
         <textarea placeholder="How's that place?"  />
         <br />
-        <button onClick={HandleAddMemory}>Add Memory</button>
         <iframe
           src="https://laughing-dijkstra-7b47ad.netlify.app/"
           title="Imgur Uploader"
@@ -101,6 +90,7 @@ function Map() {
           height="800px"
           id="iframeId"
         ></iframe>
+        <button onClick={HandleAddMemory}>Add Memory</button>
       </div>
     </>
   );
