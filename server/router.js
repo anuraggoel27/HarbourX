@@ -63,7 +63,7 @@ router.post("/user/:id/addphoto", async (req, res) => {
   var photo = new Photo({
     user_id: req.params.id,
     link: req.body.link,
-    caption: req.body.caption,
+    nameOfPlace: req.body.nameOfPlace,
     latitute: req.body.latitute,
     longitude: req.body.longitude,
     timeOfCapture: Date.now(),
