@@ -35,7 +35,6 @@ const Feed = () => {
     <>
     <LoggedHeader/>
     <div className="feed__container">
-    
     <div className="feed_content" id="body">
       <div className="feed__name" >
         <h3>{name}</h3>
