@@ -1,11 +1,11 @@
 import React from "react";
-import { Header, Footer } from "../";
+import { Header} from "../";
 import "./Home.css";
 const Home = () => {
   return (
     <>
       <Header />
-      <div className="home__container">
+      <div className="home__container" id="body">
         <h1 className="home__title">Welcome to Mapify!</h1>
         <div className="home__welcome_para">
           <a href="/signup">
@@ -19,7 +19,6 @@ const Home = () => {
           </a>{" "}
         </div>
       </div>
-      <Footer />
     </>
   );
 };

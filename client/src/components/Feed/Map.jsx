@@ -33,7 +33,9 @@ function Map() {
       user_id:id,
       link:link,
     })
-    .then((res)=>console.log(res))
+    .then((res)=>{
+      window.location.replace(`${process.env.REACT_APP_CLIENT_URL}/user/${id}`)
+    })
     .catch((err)=>console.log(err))
   }
 
